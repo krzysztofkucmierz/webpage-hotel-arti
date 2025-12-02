@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import WidgetScript from './components/WidgetScript';
 import './App.css';
 
 function App() {
@@ -36,14 +37,13 @@ function App() {
         <h1 className="headline">
           Experience Five-Star Comfort in sunny Algarve Resort
         </h1>
-        <h2 className="headline">
-          Exotic nature and delicious food
-        </h2>
+        <h2 className="headline">Exotic nature and delicious food</h2>
       </div>
 
       <button className="font-toggle" onClick={toggleFont}>
         Switch Font
       </button>
+      <WidgetScript />
     </div>
   );
 }
