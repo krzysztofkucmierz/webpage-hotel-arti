@@ -9,10 +9,34 @@ import { useEffect } from 'react';
  */
 const WidgetScript = () => {
   useEffect(() => {
+    // Inject CSS to ensure widget inherits fonts from the webpage
+    const styleId = 'ai-chat-widget-font-override';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = `
+        /* Force chatbot widget to inherit fonts from the webpage */
+        #ai-chat-widget-button,
+        #ai-chat-widget-button *,
+        #ai-chat-widget-container,
+        #ai-chat-widget-container * {
+          font-family: 'Cormorant Garamond', serif !important;
+          font-size: 1rem !important;
+        }
+        
+        /* Increase specific text elements */
+        #ai-chat-widget-button div,
+        #ai-chat-widget-container div {
+          font-size: 1rem !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
     // Get widget URL from environment variable
     const widgetBaseUrl =
       import.meta.env.VITE_WIDGET_URL ||
-      'http://chatbot-hotel-arti.netlify.app';
+      'https://chatbot-hotel-arti.netlify.app';
     const widgetScriptUrl = `${widgetBaseUrl}/widget.js`;
 
     // Determine if we're in development mode by checking if URL contains localhost
@@ -59,6 +83,13 @@ const WidgetScript = () => {
       const scriptToRemove = document.getElementById('ai-chat-widget-script');
       if (scriptToRemove) {
         scriptToRemove.remove();
+      }
+      // Remove the injected font override styles
+      const styleToRemove = document.getElementById(
+        'ai-chat-widget-font-override'
+      );
+      if (styleToRemove) {
+        styleToRemove.remove();
       }
       // Also remove the widget button and container if they exist
       const button = document.getElementById('ai-chat-widget-button');
