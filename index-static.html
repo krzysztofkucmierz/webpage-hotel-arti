@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="../public/vite.svg" />
+    <title>Experience Five-Star Comfort in sunny Algarve Resort</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100vh;
+        overflow: hidden;
+        font-family: 'Playfair Display', serif;
+      }
+
+      /* Landing page container */
+      .landing-page {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Hero image */
+      .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* Header with logo and menu */
+      .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem 3rem;
+        z-index: 10;
+      }
+
+      /* Logo */
+      .logo-container {
+        flex-shrink: 0;
+        background: transparent;
+      }
+
+      .logo {
+        height: 120px;
+        width: auto;
+        display: block;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        background: transparent;
+        mix-blend-mode: multiply;
+      }
+
+      /* Menu */
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.5rem;
+      }
+
+      .menu-item {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 0.5rem 1rem;
+        border: 2px solid transparent;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-2px);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        border-bottom: 2px solid white;
+      }
+
+      /* Headline content */
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: center;
+        max-width: 1200px;
+        padding: 0 2rem;
+      }
+
+      .headline {
+        color: white;
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0;
+        text-shadow:
+          3px 3px 8px rgba(0, 0, 0, 0.9),
+          -1px -1px 2px rgba(0, 0, 0, 0.8),
+          1px -1px 2px rgba(0, 0, 0, 0.8),
+          -1px 1px 2px rgba(0, 0, 0, 0.8),
+          1px 1px 2px rgba(0, 0, 0, 0.8);
+        letter-spacing: 1px;
+      }
+
+      h2.headline {
+        font-size: 2.5rem;
+      }
+
+      /* Widget font override */
+      #ai-chat-widget-button,
+      #ai-chat-widget-button *,
+      #ai-chat-widget-container,
+      #ai-chat-widget-container * {
+        font-family: 'Playfair Display', serif !important;
+        font-size: 1rem !important;
+      }
+
+      #ai-chat-widget-button div,
+      #ai-chat-widget-container div {
+        font-size: 1rem !important;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .header {
+          padding: 1.5rem 1.5rem;
+        }
+
+        .logo {
+          height: 90px;
+        }
+
+        .menu {
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .menu-item {
+          font-size: 0.95rem;
+        }
+
+        .headline {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+
+        h2.headline {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          padding: 1rem 1rem;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+
+        .logo {
+          height: 75px;
+        }
+
+        .menu {
+          visibility: hidden;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .headline {
+          font-size: 1.5rem;
+        }
+
+        h2.headline {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="landing-page">
+      <!-- Hero Background Image -->
+      <div class="hero-image">
+        <img
+          src="../public/algarve-hotel.jpg"
+          alt="Algarve Hotel"
+          class="background-image"
+        />
+      </div>
+
+      <!-- Header with Logo and Menu -->
+      <header class="header">
+        <div class="logo-container">
+          <img src="../public/hotel-logo.png" alt="Hotel Logo" class="logo" />
+        </div>
+
+        <nav class="menu">
+          <div class="menu-item">Get In Touch</div>
+          <div class="menu-item">Book A Room</div>
+          <div class="menu-item">Gift Vouchers</div>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <div class="content">
+        <h1 class="headline">
+          Experience Five-Star Comfort in sunny Algarve Resort
+        </h1>
+        <h2 class="headline">Exotic nature and delicious food</h2>
+      </div>
+    </div>
+
+    <!-- Chat Widget Script -->
+    <script>
+      (function () {
+        // Get widget URL - default to production
+        const widgetBaseUrl = 'https://chatbot-hotel-arti.netlify.app';
+        const widgetScriptUrl = `${widgetBaseUrl}/widget.js`;
+
+        // Check if script already exists
+        const existingScript = document.getElementById('ai-chat-widget-script');
+        if (existingScript) {
+          return;
+        }
+
+        // Create script element
+        const script = document.createElement('script');
+        script.id = 'ai-chat-widget-script';
+        script.src = widgetScriptUrl;
+        script.async = true;
+
+        // Add error handling
+        script.onerror = function () {
+          console.error(
+            'Failed to load widget script from ' +
+              widgetScriptUrl +
+              '. Make sure the chatbot widget is running.'
+          );
+        };
+
+        // Add success handling
+        script.onload = function () {
+          console.log('Widget script loaded successfully from', widgetScriptUrl);
+        };
+
+        // Add script to document
+        document.body.appendChild(script);
+      })();
+    </script>
+  </body>
+</html>

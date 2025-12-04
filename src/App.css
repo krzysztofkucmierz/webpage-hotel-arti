@@ -116,6 +116,10 @@
   letter-spacing: 1px;
 }
 
+h2.headline {
+  font-size: 2.5rem;
+}
+
 /* Font toggle button */
 .font-toggle {
   position: absolute;
@@ -166,6 +170,10 @@
     padding: 0 1rem;
   }
 
+  h2.headline {
+    font-size: 1.5rem;
+  }
+
   .font-toggle {
     bottom: 1rem;
     right: 1rem;
@@ -195,4 +203,9 @@
   .headline {
     font-size: 1.5rem;
   }
+
+  h2.headline {
+    font-size: 1.2rem;
+  }
+
 }

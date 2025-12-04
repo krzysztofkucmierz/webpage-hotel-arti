@@ -7,6 +7,7 @@ function App() {
     'playfair'
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const toggleFont = () => {
     setFontStyle((prev) => (prev === 'playfair' ? 'cormorant' : 'playfair'));
   };
@@ -40,9 +41,9 @@ function App() {
         <h2 className="headline">Exotic nature and delicious food</h2>
       </div>
 
-      <button className="font-toggle" onClick={toggleFont}>
+      {/* <button className="font-toggle" onClick={toggleFont}>
         Switch Font
-      </button>
+      </button> */}
       <WidgetScript />
     </div>
   );
