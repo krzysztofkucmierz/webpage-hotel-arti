@@ -1,19 +1,9 @@
-import { useState } from 'react';
 import WidgetScript from './components/WidgetScript';
 import './App.css';
 
 function App() {
-  const [fontStyle, setFontStyle] = useState<'playfair' | 'cormorant'>(
-    'playfair'
-  );
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const toggleFont = () => {
-    setFontStyle((prev) => (prev === 'playfair' ? 'cormorant' : 'playfair'));
-  };
-
   return (
-    <div className={`landing-page font-${fontStyle}`}>
+    <div className="landing-page font-playfair">
       <div className="hero-image">
         <img
           src="/algarve-hotel.jpg"
@@ -41,9 +31,6 @@ function App() {
         <h2 className="headline">Exotic nature and delicious food</h2>
       </div>
 
-      {/* <button className="font-toggle" onClick={toggleFont}>
-        Switch Font
-      </button> */}
       <WidgetScript />
     </div>
   );
